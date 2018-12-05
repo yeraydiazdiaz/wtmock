@@ -1,4 +1,4 @@
-from unittest import TestCase, mock
+from unittest import TestCase, mock, expectedFailure
 
 from worker import Worker, Helper
 
@@ -14,6 +14,7 @@ class TestWorker(TestCase):
             MockHelper.assert_called_once_with('db')
             self.assertEqual(worker.work(), 'testing')
 
+    @expectedFailure
     def test_patching_class_with_spec(self):
         with mock.patch('worker.Helper', autospec=True) as MockHelper:
             # the following would raise attribute error
