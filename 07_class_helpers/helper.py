@@ -1,7 +1,3 @@
-from collections import namedtuple
-
-Field = namedtuple('Field', ('type_', 'default'))
-
 class Field:
     def __init__(self, type_, default, value=None):
         self.type_ = type_
