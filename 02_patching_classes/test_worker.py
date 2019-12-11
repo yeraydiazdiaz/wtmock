@@ -16,7 +16,7 @@ class TestWorker(TestCase):
         with mock.patch('worker.Helper') as MockHelper:
             MockHelper.return_value.get_path.return_value = 'testing'
             worker = Worker()
-            MockHelper.assrt_called_once_with('db')
+            MockHelper.assert_called_once_with('db')
             self.assertEqual(worker.work(), 'testing')
 
     def test_patching_class_with_spec(self):
